@@ -1,0 +1,41 @@
+﻿function roll(carried){
+    for(var i = carried; i < 5; i++){
+        var pips = pip(6);
+        $('#table').append(image("png/" + pips + ".png", "#table"));
+    }
+}
+
+function image(filename, container){
+    var img = new Image();
+    $(img).attr('src', '' + filename).appendTo($(container));
+    $(img).addClass('dice');
+    return img;
+}
+
+function pip(sides){
+    var random = Math.random(), i = 1;
+    for(i; i <= sides; i ++){
+        if(random < i/sides){
+            return i;
+        }
+    }
+}
+
+var gravityOff = true;
+
+function gravity(container){
+    if(gravityOff){
+        $(container).jGravity({ // jGravity works best when targeting the body
+            target: 'img', // Enter your target critera e.g. 'div, p, span', 'h2' or 'div#specificDiv', or even 'everything' to target everything in the body
+            ignoreClass: 'ignoreGravity', // Specify if you would like to use an ignore class, and then specify the class
+            weight: 20, // Enter any number 1-100 ideally (25 is default), you can also use 'heavy' or 'light'
+            depth: 1, // Enter a value between 1-10 ideally (1 is default), this is used to prevent targeting structural divs or other items which may break layout in jGravity
+            drag: true // Decide if users can drag elements which have been affected by jGravity
+        });
+        gravityOff = false;
+    }  
+}
+
+function clear(){
+    $("img:not(.carry)").remove();
+}

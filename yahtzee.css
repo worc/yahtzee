@@ -1,0 +1,13 @@
+﻿.dice{
+    font-size:20px;
+}
+
+.carry{
+    font-weight:bold;
+}
+
+#table{
+    background-color:#6ebf70;
+    height:400px;
+    width:800px;
+}
