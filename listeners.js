@@ -7,7 +7,10 @@ $(document.body).on('click', '.carry', function(){
 })
 
 $(document.body).on('click', 'img', function(){
-    rotationPolling($(this));
+    var test = rotationPolling($(this));
+
+    console.log( Math.round(Math.atan2(test[1], test[0]) * (180/Math.PI)) );
+    console.log(Math.round(Math.asin(test[1]) * (180/Math.PI)));
 })
 
 $("#roll").click(function(){
