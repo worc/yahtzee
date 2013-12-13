@@ -6,11 +6,16 @@ $(document.body).on('click', '.carry', function(){
     $(this).removeClass('carry');
 })
 
+$(document.body).on('click', 'img', function(){
+    rotationPolling($(this));
+})
+
 $("#roll").click(function(){
     $(document.head).html("<title>" + Math.random() + "</title>");
     clear();
-    roll($(".carry").size());
+    roll($(".carry").size(), $('#table'));
     //gravity("#table");
+    meta();
 })
 
 $("#gravity").click(function(){
@@ -26,7 +31,7 @@ $(document.body).on('click', '#table', function(){
 
 $(document).ready(function(){
     //$("div#game").draggable({axis:"x"});
-    $("div#game").draggable();
+    //$("div#game").draggable();
 
 
 })
