@@ -1,7 +1,7 @@
 ﻿function roll(carried){
     for(var i = carried; i < 5; i++){
         var pips = pip(6);
-        $('#table').append(image("png/" + pips + ".png", "#table"));
+        $('#table').append(image("pictures/" + pips + ".png", "#table"));
     }
 }
 
@@ -9,6 +9,10 @@ function image(filename, container){
     var img = new Image();
     $(img).attr('src', '' + filename).appendTo($(container));
     $(img).addClass('dice');
+    $(img).draggable({containment: "#game"});
+    $(img).attr("z-index", "1");
+    //{ connectToSortable: "#dice-list" })
+
     return img;
 }
 
@@ -33,7 +37,7 @@ function gravity(container){
             drag: true // Decide if users can drag elements which have been affected by jGravity
         });
         gravityOff = false;
-    }  
+    }
 }
 
 function clear(){

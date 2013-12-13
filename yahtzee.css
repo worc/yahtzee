@@ -1,4 +1,10 @@
-﻿.dice{
+﻿* {
+    margin:0px;
+    border:0px;
+    padding:0px;
+}
+
+.dice{
     font-size:20px;
 }
 
@@ -9,5 +15,14 @@
 #table{
     background-color:#6ebf70;
     height:400px;
-    width:800px;
+    width:600px;
+    display:inline-block;
+    overflow:hidden;
+}
+#sideboard{
+    background-image:url("pictures/sideboard.gif");
+    width:100px;
+    height:400px;
+    display:inline-block;
+    z-index:0;
 }

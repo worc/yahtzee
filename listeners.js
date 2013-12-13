@@ -2,10 +2,6 @@
     $(this).addClass('carry');
 })
 
-$(document.body).on('click', '.dice', function(){
-    $(this).addClass('carry');
-})
-
 $(document.body).on('click', '.carry', function(){
     $(this).removeClass('carry');
 })
@@ -27,3 +23,10 @@ $(document.body).on('click', '#table', function(){
 })
 
 //$("#table").draggable();
+
+$(document).ready(function(){
+    //$("div#game").draggable({axis:"x"});
+    $("div#game").draggable();
+
+
+})
