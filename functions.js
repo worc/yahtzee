@@ -1,6 +1,4 @@
-﻿var gravityOff = true, values = [], rolls = 0;
-
-function roll(carried, parent){
+﻿function roll(carried, parent){
     for(var i = carried; i < 5; i++){
         var pips = pip(6);
         $(parent).append(makeDie("pictures/" + pips + ".png", parent, pips));
@@ -52,4 +50,11 @@ function meta(){
         values[i] = $('img[pips="' + i + '"]').length;
         $(spans[i-1]).text(text);
     }
+}
+
+function generatePolls(){
+    $("img.dice").each(function(){
+
+        polls.push(new RotationPoll($(this)));
+    });
 }
