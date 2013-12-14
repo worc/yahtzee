@@ -63,9 +63,10 @@ function generatePolls(){
 
     //only maintain five poll arrays in the history
     if(polls.length === 5){
-        polls.shift();
+        polls = polls.splice(1,1);
     }
     //snap shot is one moment for each die
+    //and is cleared for each poll
     snapshot.splice(0,snapshot.length);
     $("img.dice").each(function(){
         snapshot.push(new RotationPoll($(this)));
@@ -106,7 +107,3 @@ function reroll(){
         dice++;
     }
 }
-//if a dice has the same rotation three polls in row
-//lock that die down as that number
-//else
-//roll a new number for that die.
