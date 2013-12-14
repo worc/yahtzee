@@ -6,16 +6,15 @@
 </head>
 <body>
     <div id="game">
+        <div id="controls" class="ignoreGravity">
+            <span id="roll" class="ignoreGravity">Roll!</span>
+            <span id="gravity" class="ignoreGravity">Click it, you know you want to!</span>
+        </div>
         <div id="table" class="ignoreGravity"></div>
-        <div id="sideboard" class="ignoreGravity"></div>
+        <!--<div id="sideboard" class="ignoreGravity"></div>-->
     </div>
 
-	<div id="controls" class="ignoreGravity">
 
-		<span id="roll" class="ignoreGravity">Roll!</span>
-    	<span id="gravity" class="ignoreGravity">Click it, you know you want to!</span>
-
-	</div>
 
 <div id="meta" class="ignoreGravity">
 	<span pips="1" class="returned ignoreGravity"></span>
@@ -35,7 +34,6 @@
     <script type="text/javascript" src="js/variables.js"></script>
     <script src="functions.js"></script>
     <script src="listeners.js"></script>
-    <script type="text/javascript" src="js/rotationPolling.js"></script>
     <script type="text/javascript" src="js/matrixParser.js"></script>
     <script type="text/javascript" src="js/RotationPoll.js"></script>
     <link rel="stylesheet" href="yahtzee.css" />

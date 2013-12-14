@@ -8,7 +8,7 @@ $(document.body).on('click', '.carry', function(){
 
 $("#roll").click(function(){
     $(document.head).html("<title>" + Math.random() + "</title>");
-    clear();
+    //clear();
     roll($(".carry").size(), $('#table'));
     //gravity("#table");
     meta();
@@ -16,6 +16,7 @@ $("#roll").click(function(){
 
 $("#gravity").click(function(){
 	gravity("#table");
+    setInterval(function(){generatePolls();},250);
 })
 
 
@@ -26,8 +27,14 @@ $(document.body).on('click', '#table', function(){
 //$("#table").draggable();
 
 $(document).ready(function(){
+    storeWindowSize();
+    resizeGame();
+    makeFiveDice($("#game"));
     //$("div#game").draggable({axis:"x"});
     //$("div#game").draggable();
-
-
 })
+
+$(window).resize(function() {
+    storeWindowSize();
+    resizeGame();
+});
