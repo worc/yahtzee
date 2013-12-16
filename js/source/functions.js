@@ -1,7 +1,16 @@
 function roll(){
     //only roll if we haven't hit our maximum for this hand
     if(rolls < 3){
+        $('#dice>.reporter').each(function(){
+            $(this).removeClass('scored');
+        });
         rolls++;
+        if(rolls === 3){
+            $('#dice>.reporter').each(function(){
+                $(this).addClass('holding');
+                $(this).attr('holding', 'true');
+            });
+        }
         for(var i = 0; i < dice.length; i++){
             var context = $(dice[i].reporter.context);
             if(dice[i].holding === false){
@@ -41,6 +50,13 @@ function meta(){
     });
     $('#derived>span#sum').text($('#derived>span#sum').attr('id') + ': ' + sum/6);
     $('#derived>span#rolls').text($('#derived>span#rolls').attr('id') + ': ' + rolls);
+    //sum up the scores in the upper table and add them to the net
+    sum = 0;
+    for(var element in upperScores){
+        sum += parseInt( $(element).text().split(' ')[1] )
+    }
+    scorecard.upper.net = sum;
+    $('#scoring>.upper>.derived').eq(0).text = $('#scoring>.upper>.derived').eq(0).attr('id') + ': ' + sum;
 }
 
 //fill in what score each box would score with the current dice
@@ -61,6 +77,14 @@ function score(){
         $(this).addClass('scored');
         scorecard[sheet][$(this).attr('label')] = score;
     });
+    $('#dice>.reporter').each(function(){
+        $(this).removeClass('holding');
+        $(this).attr('holding', 'false');
+    });
+    $('#dice>.reporter').each(function(){
+        $(this).addClass('scored');
+    });
+    meta();
 }
 
 function storeWindowSize(){
@@ -74,6 +98,7 @@ function initialize(){
     });
     $('#dice > .reporter').each(function(){
         dice.push(new Die(6, $(this)));
+        $(this).attr('pips', '');
         $(this).text($(this).attr('id') + ': ' + $(this).attr('pips'));
         $(this).attr('holding', 'false');
     });

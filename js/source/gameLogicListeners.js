@@ -20,17 +20,19 @@ $(document).ready(function(){
     });
    
     //checkbox behavior for dice, we can pick multiple dice
+    //can only pick dice before the last roll
     $('#dice').on('click', '.reporter', function(){
-        if($(this).attr('holding') === 'true'){
-            $(this).attr('holding', 'false');
-            $(this).removeClass('holding');  
-        } else {
-            $(this).attr('holding', 'true'); 
-            $(this).addClass('holding');  
+        if(rolls < 3 && rolls > 0){
+            if($(this).attr('holding') === 'true'){
+                $(this).attr('holding', 'false');
+                $(this).removeClass('holding');  
+            } else {
+                $(this).attr('holding', 'true'); 
+                $(this).addClass('holding');  
+            }
         }
         updateDiceHolding();
-    }); 
-    
+    });    
     
     //radio button behavior for scoring, since we can only score one box at a time
     //and no selected already scored fields
@@ -47,9 +49,7 @@ $(document).ready(function(){
                     $(this).removeClass('holding');  
                 })
             }
-        }
+        }	
         updateDiceHolding();
-    }); 
-
-
+    });
 });
