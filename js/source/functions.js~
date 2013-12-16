@@ -5,12 +5,21 @@
     }
 }
 
-function roll(carried){
-    $("img:not(.carry)").each(function(){
-        var pips = pip(6);
-        $(this).attr('src', 'pictures/' + pips + '.png');
-    });
+//function roll(carried){
+//    $("img:not(.carry)").each(function(){
+//        var pips = pip(6);
+//        $(this).attr('src', 'pictures/' + pips + '.png');
+//    });
+//}
+
+function roll(dice, sides){
+    values
+    for(var i = 0; i < dice; i++){
+        
+    }    
+
 }
+
 function makeDie(filename, container, pips){
     var img = new Image();
     $(img).attr('src', '' + filename).appendTo($(container));
@@ -107,3 +116,14 @@ function reroll(){
         dice++;
     }
 }
+
+function initialize(){
+    $('div > span').each(function(){
+        $(this).text($(this).attr('id') + ': ');    
+    });
+    $('div#dice > span').each(function(){
+        var die = new Die(6, $(this));
+    });
+}
+
+initialize();

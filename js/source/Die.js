@@ -1,8 +1,10 @@
-var Die = function(){
+var Die = function(sides, reporter){
     var die = {};
-    die['sides'] = 0;
+    die['sides'] = sides;
     die['showing'] = 0;
     die['holding'] = false;
+    die['reporter'] = reporter;
+    die['image'] = undefined;
     die['roll'] = function(){
         var random = Math.random(), i = 1;
         while(i <= die.sides){
