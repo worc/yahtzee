@@ -6,27 +6,29 @@
 </head>
 <body>
 
-<div id="dice">
-    <span class="reporter" id="alpha"></span>
-    <span class="reporter" id="beta"></span>
-    <span class="reporter" id="gamma"></span>
-    <span class="reporter" id="delta"></span>
-    <span class="reporter" id="epsilon"></span>
-</div>
+<section id="dice">
+    <span pips="0" class="reporter" id="alpha"></span>
+    <span pips="0" class="reporter" id="beta"></span>
+    <span pips="0" class="reporter" id="gamma"></span>
+    <span pips="0" class="reporter" id="delta"></span>
+    <span pips="0" class="reporter" id="epsilon"></span>
+</section>
 
-<div id="meta">
+<section id="hits">
     <span class="reporter" id="ones"></span>
     <span class="reporter" id="twos"></span>
     <span class="reporter" id="threes"></span>
     <span class="reporter" id="fours"></span>
     <span class="reporter" id="fives"></span>
     <span class="reporter" id="sixes"></span>
+</section>
+<section id="derived">
     <span class="reporter" id="sum"></span>
     <span class="reporter" id="rolls"></span>
-</div>
+</section>
 
-<div id="scoring">
-    <div id="upper">
+<section id="scoring">
+    <section id="upper">
         <span class="reporter" id="aces"></span>
         <span class="reporter" id="twos"></span>
         <span class="reporter" id="threes"></span>
@@ -36,11 +38,11 @@
         <span class="reporter" id="net"></span>
         <span class="reporter" id="bonus"></span>
         <span class="reporter" id="grand">s</span>
-    </div>
-    <div id="lower">
+    </section>
+    <section id="lower">
     
-    </div>
-</div>
+    </section>
+</section>
     
 </body>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

@@ -1,12 +1,5 @@
 $(document).ready(function(){
-    
-    function addLabels(){
-        $('div#meta > span').each(function(){
-            //var id = $(this).id();
-
-        });
-    }
-    
+        
    $(window).keypress(function(event) {
         console.log(event);
         if(event.which === 114 || event.which === 82){
@@ -15,10 +8,6 @@ $(document).ready(function(){
             roll();
         }
    });
-   
-   
-    
-    addLabels();
 });
 
 

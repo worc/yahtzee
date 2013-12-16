@@ -5,6 +5,10 @@
     overflow:hidden;
 }
 
+section{
+    border:1px solid black;
+}
+
 .reporter{
     display:block;
 }

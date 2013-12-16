@@ -1,23 +1,16 @@
-﻿function makeFiveDice(parent){
-    for(var i = 0; i < 5; i++){
-        var pips = pip(6);
-        $(parent).append(makeDie("pictures/" + pips + ".png", parent, pips));
+function roll(dice, sides){
+    rolls++;
+    for(var i = 0; i < values.length; i++){
+        var context = $(values[i].reporter.context);
+        values[i].roll();
+        display(context, 'pips', i);
     }
+    meta();    
 }
 
-//function roll(carried){
-//    $("img:not(.carry)").each(function(){
-//        var pips = pip(6);
-//        $(this).attr('src', 'pictures/' + pips + '.png');
-//    });
-//}
-
-function roll(dice, sides){
-    values
-    for(var i = 0; i < dice; i++){
-        
-    }    
-
+function display(context, attribute, i){
+    context.attr(attribute, "" + values[i].showing + "");
+    context.text(context.attr('id') + ': ' + context.attr('pips'))
 }
 
 function makeDie(filename, container, pips){
@@ -60,12 +53,20 @@ function clear(){
 }
 
 function meta(){
-    var spans = $(".returned"), i = 1, text = "";
-    for(i; i<=6; i++){
-        text = i + " Hits: " + $('img[pips="' + i + '"]').length;
-        values[i] = $('img[pips="' + i + '"]').length;
-        $(spans[i-1]).text(text);
-    }
+    var target = 1, sum = 0;
+    $('#hits>span').each(function(){
+        var hits = 0, iterator = 0;
+        for(iterator; iterator < values.length; iterator++){
+            sum += values[iterator].showing;
+            if(values[iterator].showing === target){
+                hits++;
+            }
+        }
+        $(this).text($(this).attr('id') + ': ' + hits);
+        target++
+    });
+    $('#derived>span#sum', this).text($(this).attr('id') + ': ' + sum/6);
+    $('#derived>span#rolls', this).text($(this).attr('id') + ': ' + rolls);
 }
 
 function generatePolls(){
@@ -121,8 +122,9 @@ function initialize(){
     $('span.reporter').each(function(){
         $(this).text($(this).attr('id') + ': ');    
     });
-    $('div#dice > span').each(function(){
+    $('#dice > span').each(function(){
         values.push(new Die(6, $(this)));
+        $(this).text($(this).attr('id') + ': ' + $(this).attr('pips'));    
     });
     scorecard = new Scorecard('USER');
 }
