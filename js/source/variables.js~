@@ -1,5 +1,4 @@
-var     scorecard = {},
-        monitor = {},
+var     monitor = {},
         windowSize = {},
         gravityOff = true,
         values = [],

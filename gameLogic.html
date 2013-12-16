@@ -7,42 +7,48 @@
 <body>
 
 <div id="dice">
-    <span id="alpha"></span>
-    <span id="beta"></span>
-    <span id="gamma"></span>
-    <span id="delta"></span>
-    <span id="epsilon"></span>
+    <span class="reporter" id="alpha"></span>
+    <span class="reporter" id="beta"></span>
+    <span class="reporter" id="gamma"></span>
+    <span class="reporter" id="delta"></span>
+    <span class="reporter" id="epsilon"></span>
 </div>
 
 <div id="meta">
-    <span id="ones"></span>
-    <span id="twos"></span>
-    <span id="threes"></span>
-    <span id="fours"></span>
-    <span id="fives"></span>
-    <span id="sixes"></span>
-    <span id="sum"></span>
-    <span id="rolls"></span>
+    <span class="reporter" id="ones"></span>
+    <span class="reporter" id="twos"></span>
+    <span class="reporter" id="threes"></span>
+    <span class="reporter" id="fours"></span>
+    <span class="reporter" id="fives"></span>
+    <span class="reporter" id="sixes"></span>
+    <span class="reporter" id="sum"></span>
+    <span class="reporter" id="rolls"></span>
 </div>
 
 <div id="scoring">
     <div id="upper">
-        <span id="aces"></span>
-        <span id="twos"></span>
-        <span id="threes"></span>
-        <span id="fours"></span>
-        <span id="fives"></span>
-        <span id="sixes"></span>
+        <span class="reporter" id="aces"></span>
+        <span class="reporter" id="twos"></span>
+        <span class="reporter" id="threes"></span>
+        <span class="reporter" id="fours"></span>
+        <span class="reporter" id="fives"></span>
+        <span class="reporter" id="sixes"></span>
+        <span class="reporter" id="net"></span>
+        <span class="reporter" id="bonus"></span>
+        <span class="reporter" id="grand">s</span>
     </div>
-    <div id="lower"></div>
+    <div id="lower">
+    
+    </div>
 </div>
     
 </body>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script type="text/javascript" src="js/source/Die.js"></script>
+    <script type="text/javascript" src="js/source/Scorecard.js"></script>
     <script type="text/javascript" src="js/source/variables.js"></script>
     <script type="text/javascript" src="js/source/gameLogicListeners.js"></script>
     <script type="text/javascript" src="js/source/functions.js"></script>
-
+    <link rel="stylesheet" href="yahtzee.css" />
 </html>

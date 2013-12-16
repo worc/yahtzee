@@ -1,9 +1,10 @@
 var Scorecard = function(name){
+
     scorecard = {};
 
     scorecard.player = name;
 
-    scorecard.upper = [
+    scorecard.upper = {
         'aces'      : 0,
         'twos'      : 0,
         'threes'    : 0,
@@ -13,8 +14,8 @@ var Scorecard = function(name){
         'net'       : 0,
         'bonus'     : 0,
         'grand'     : 0,
-    ];
-    scorecard.lower = [
+    };
+    scorecard.lower = {
         'trips'     : 0,
         'quads'     : 0,
         'house'     : 0,
@@ -27,8 +28,7 @@ var Scorecard = function(name){
         'net'       : 0,
         'upper'     : 0,
         'grand'     : 0,
-    ];
-    
+    };   
 
     return scorecard;
 }

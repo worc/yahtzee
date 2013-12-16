@@ -118,12 +118,13 @@ function reroll(){
 }
 
 function initialize(){
-    $('div > span').each(function(){
+    $('span.reporter').each(function(){
         $(this).text($(this).attr('id') + ': ');    
     });
     $('div#dice > span').each(function(){
         values.push(new Die(6, $(this)));
     });
+    scorecard = new Scorecard('USER');
 }
 
 initialize();
