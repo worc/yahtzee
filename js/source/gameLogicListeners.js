@@ -3,7 +3,7 @@ $(document).ready(function(){
     function addLabels(){
         $('div#meta > span').each(function(){
             //var id = $(this).id();
-            $(this).text($(this).attr('id') + ': ');
+
         });
     }
     
