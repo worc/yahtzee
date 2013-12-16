@@ -11,11 +11,14 @@ $(document).ready(function(){
    
     
     $('#dice').on('click', '.reporter', function(){
-        $(this).addClass('hold');    
-    });
-        
-    $('#dice').on('click', '.hold', function(){
-        $(this).removeClass('hold');    
+        if($(this).attr('holding') === 'true'){
+            $(this).attr('holding', 'false');
+            $(this).removeClass('holding');  
+        } else {
+            $(this).attr('holding', 'true'); 
+            $(this).addClass('holding');  
+        }
+        updateDiceHolding();
     });
 
 });

@@ -6,13 +6,15 @@ var Die = function(sides, reporter){
     die['reporter'] = reporter;
     die['image'] = undefined;
     die['roll'] = function(){
-        var random = Math.random(), i = 1;
-        while(i <= die.sides){
-            if(random < i/die.sides){
-                die.showing = i;
-                break;
+        if(die.holding === false){
+            var random = Math.random(), i = 1;
+            while(i <= die.sides){
+                if(random < i/die.sides){
+                    die.showing = i;
+                    break;
+                }
+                i++;
             }
-            i++;
         }
     }
     return die

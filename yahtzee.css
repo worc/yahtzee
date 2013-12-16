@@ -2,7 +2,6 @@
     margin:0px;
     border:0px;
     padding:0px;
-    overflow:hidden;
 }
 
 section{
@@ -17,9 +16,9 @@ section{
     font-size:20px;
 }
 
-.carry{
+.holding    {
     font-weight:bold;
-    background:#222222;
+    background:#bbbbbb;
 }
 
 #game{
