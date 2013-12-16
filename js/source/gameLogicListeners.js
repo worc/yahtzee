@@ -32,18 +32,21 @@ $(document).ready(function(){
     }); 
     
     
-    //radio button behavior for scoring, since we can only score one box at a time    
+    //radio button behavior for scoring, since we can only score one box at a time
+    //and no selected already scored fields
     $('#scoring>.upper').on('click', '.reporter', function(){
-        if($(this).attr('holding') === 'true'){
-            $(this).attr('holding', 'false');
-            $(this).removeClass('holding');  
-        } else {
-            $(this).attr('holding', 'true'); 
-            $(this).addClass('holding');
-            $('#scoring>.upper>.reporter').not($(this)).each(function(){
+        if($(this).attr('scored') === 'false'){
+            if($(this).attr('holding') === 'true'){
                 $(this).attr('holding', 'false');
                 $(this).removeClass('holding');  
-            })
+            } else {
+                $(this).attr('holding', 'true'); 
+                $(this).addClass('holding');
+                $('#scoring>.upper>.reporter').not($(this)).each(function(){
+                    $(this).attr('holding', 'false');
+                    $(this).removeClass('holding');  
+                })
+            }
         }
         updateDiceHolding();
     }); 

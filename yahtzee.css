@@ -16,9 +16,15 @@ section{
     font-size:20px;
 }
 
-.holding    {
+.holding{
     font-weight:bold;
     background:#bbbbbb;
+}
+
+.scored{
+    font-weight:bold;
+    font-style:italic;
+    background:#bbbbdd;
 }
 
 #game{

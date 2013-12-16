@@ -45,14 +45,22 @@ function meta(){
 
 //fill in what score each box would score with the current dice
 function upperScorePreview(element, hits){
-    //parse the pip count in the element to an integer, base 10
-    var pips = parseInt($(element).attr('pips'),10)
-    $(element).text($(element).attr('label') + ': ' + pips*hits);
+    if($(element).attr('scored') === 'false'){
+        //parse the pip count in the element to an integer, base 10
+        var pips = parseInt($(element).attr('pips'),10)
+        $(element).text($(element).attr('label') + ': ' + pips*hits);
+    }
 }
 
 //make a selection of which box to score and make that permanent
 function score(){
-
+    $('#scoring>.upper>.holding').each(function(){
+        var sheet = 'upper', score = parseInt( $(this).text().split(' ')[1] );
+        rolls = 0;
+        $(this).attr('scored', 'true');
+        $(this).addClass('scored');
+        scorecard[sheet][$(this).attr('label')] = score;
+    });
 }
 
 function storeWindowSize(){
@@ -68,6 +76,9 @@ function initialize(){
         dice.push(new Die(6, $(this)));
         $(this).text($(this).attr('id') + ': ' + $(this).attr('pips'));
         $(this).attr('holding', 'false');
+    });
+    $('#scoring>.upper>.reporter').each(function(){
+        $(this).attr('scored', 'false');
     });
     scorecard = new Scorecard('USER');
 }
