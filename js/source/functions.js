@@ -65,8 +65,8 @@ function meta(){
         $(this).text($(this).attr('id') + ': ' + hits);
         target++
     });
-    $('#derived>span#sum', this).text($(this).attr('id') + ': ' + sum/6);
-    $('#derived>span#rolls', this).text($(this).attr('id') + ': ' + rolls);
+    $('#derived>span#sum').text($('#derived>span#sum').attr('id') + ': ' + sum/6);
+    $('#derived>span#rolls').text($('#derived>span#rolls').attr('id') + ': ' + rolls);
 }
 
 function generatePolls(){

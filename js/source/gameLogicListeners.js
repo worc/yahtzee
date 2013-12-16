@@ -8,6 +8,16 @@ $(document).ready(function(){
             roll();
         }
    });
+   
+    
+    $('#dice').on('click', '.reporter', function(){
+        $(this).addClass('hold');    
+    });
+        
+    $('#dice').on('click', '.hold', function(){
+        $(this).removeClass('hold');    
+    });
+
 });
 
 
