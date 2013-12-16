@@ -28,18 +28,20 @@
 </section>
 
 <section id="scoring">
-    <section id="upper">
-        <span class="reporter" id="aces"></span>
-        <span class="reporter" id="twos"></span>
-        <span class="reporter" id="threes"></span>
-        <span class="reporter" id="fours"></span>
-        <span class="reporter" id="fives"></span>
-        <span class="reporter" id="sixes"></span>
-        <span class="reporter" id="net"></span>
-        <span class="reporter" id="bonus"></span>
-        <span class="reporter" id="grand">s</span>
+    <section class="upper">
+        <span class="reporter" label="aces" pips="1"></span>
+        <span class="reporter" label="twos" pips="2"></span>
+        <span class="reporter" label="threes" pips="3"></span>
+        <span class="reporter" label="fours" pips="4"></span>
+        <span class="reporter" label="fives" pips="5"></span>
+        <span class="reporter" label="sixes"  pips="6"></span>
+        <section class="derived">
+            <span class="reporter" label="net"></span>
+            <span class="reporter" label="bonus"></span>
+            <span class="reporter" label="upper"></span>
+        </section>
     </section>
-    <section id="lower">
+    <section class="lower">
         <span class="reporter" id="trips"></span>
         <span class="reporter" id="quads"></span>
         <span class="reporter" id="house"></span>

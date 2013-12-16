@@ -10,7 +10,7 @@ function roll(){
             context.attr('pips', "" + dice[i].showing + "");
             context.text(context.attr('id') + ': ' + context.attr('pips'));
         }
-        meta();    
+        meta();
     }
 }
 
@@ -26,8 +26,8 @@ function updateDiceHolding(){
 }
 
 function meta(){
-    var target = 1, sum = 0;
-    $('#hits>span').each(function(){
+    var target = 1, sum = 0, upperScores = $('#scoring>.upper>.reporter');
+    $('#hits>span').each(function(index){
         var hits = 0, iterator = 0;
         for(iterator; iterator < dice.length; iterator++){
             sum += dice[iterator].showing;
@@ -36,10 +36,23 @@ function meta(){
             }
         }
         $(this).text($(this).attr('id') + ': ' + hits);
+        upperScorePreview(upperScores[index], hits);
         target++
     });
     $('#derived>span#sum').text($('#derived>span#sum').attr('id') + ': ' + sum/6);
     $('#derived>span#rolls').text($('#derived>span#rolls').attr('id') + ': ' + rolls);
+}
+
+//fill in what score each box would score with the current dice
+function upperScorePreview(element, hits){
+    //parse the pip count in the element to an integer, base 10
+    var pips = parseInt($(element).attr('pips'),10)
+    $(element).text($(element).attr('label') + ': ' + pips*hits);
+}
+
+//make a selection of which box to score and make that permanent
+function score(){
+
 }
 
 function storeWindowSize(){
@@ -49,7 +62,7 @@ function storeWindowSize(){
 
 function initialize(){
     $('.reporter').each(function(){
-        $(this).text($(this).attr('id') + ': ');    
+        $(this).text($(this).attr('label') + ': ');    
     });
     $('#dice > .reporter').each(function(){
         dice.push(new Die(6, $(this)));
