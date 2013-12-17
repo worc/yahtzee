@@ -1,12 +1,13 @@
-function matrixParser(m){
+function matrixParser(matrix){
 
-    //add sanity check for "None" matrix
-    var w = m.split(','), i = 0;
-    w[0]=w[0].split('(')[1];
+    //add sanity check for "None" matrixatrix
+    //add sanity check for typeof matrix == string
+    var parsedMatrix = matrix.split(','), i = 0;
+    parsedMatrix[0]=parsedMatrix[0].split('(')[1];
 
-    while(i<w.length){
-        w[i] = parseFloat(w[i++]);
+    while(i<parsedMatrix.length){
+        parsedMatrix[i] = parseFloat(parsedMatrix[i++]);
     }
 
-    return w;
+    return parsedMatrix;
 }

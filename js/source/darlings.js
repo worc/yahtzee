@@ -50,21 +50,21 @@ function makeDie(filename, container, pips){
 
 function generatePolls(){
 
+    var snapshot = new Array();
+
     //only maintain five poll arrays in the history
     if(polls.length === 5){
-        polls = polls.shift();
+        polls = polls.splice(1,4);
     }
-    //snap shot is one moment for each die
-    //and is cleared for each poll
-    snapshot.splice(0,snapshot.length);
-    $("img.dice").each(function(){
-        snapshot.push(new RotationPoll($(this)));
+    $("img.dice").each(function(index){
+        snapshot[index] = new RotationPoll($(this));
     });
 
     //finally, save the snapshot to the polls
-    polls.push(snapshot);
+    polls[polls.length] = [];
+    polls[polls.length-1] = snapshot;
 
-    console.log(polls[0][0].rotation);
+    //console.log(polls[0][0].rotation);
 
     //only do a reroll if we have enough history
     if(polls.length === 5){
