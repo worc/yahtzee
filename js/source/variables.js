@@ -6,5 +6,5 @@ var     scorecard = {},
         polls = [],
         interval = 350,
         threshold = 1,
-        diceCount = 21,
+        diceCount = 5,
         rolls = 0;
