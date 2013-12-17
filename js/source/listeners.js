@@ -16,7 +16,7 @@ $("#roll").click(function(){
 
 $("#gravity").click(function(){
 	gravity("#table");
-    setInterval(function(){generatePolls();},250);
+    setInterval(function(){generatePolls();interval});
 })
 
 
@@ -29,7 +29,7 @@ $(document.body).on('click', '#table', function(){
 $(document).ready(function(){
     storeWindowSize();
     resizeGame();
-    makeFiveDice($("#game"));
+    makeDice($("#game"), diceCount);
     //$("div#game").draggable({axis:"x"});
     //$("div#game").draggable();
 })

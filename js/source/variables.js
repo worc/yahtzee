@@ -4,4 +4,7 @@ var     scorecard = {},
         gravityOff = true,
         dice = [], //an array of Die objects
         polls = [],
+        interval = 350,
+        threshold = 1,
+        diceCount = 21,
         rolls = 0;

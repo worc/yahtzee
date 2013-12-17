@@ -1,5 +1,5 @@
-﻿function makeFiveDice(parent){
-    for(var i = 0; i < 5; i++){
+﻿function makeDice(parent, amount){
+    for(var i = 0; i < amount; i++){
         var pips = pip(6);
         $(parent).append(makeDie("pictures/" + pips + ".png", parent, pips));
     }
@@ -74,14 +74,14 @@ function generatePolls(){
 
 function reroll(){
     var dice = 0;
-    while(dice < 5){
+    while(dice < diceCount){
         var snapshots = 0, history = [], deviation = 0, element=polls[0][dice].element;
         while(snapshots < 5){
             history.push(polls[snapshots][dice].rotation);
             snapshots++;
         }
         //TODO change this to standard deviation
-        if(Math.abs(history[4] - history[0]) > 5){
+        if(Math.abs(history[4] - history[3]) > threshold){
             var pips = pip(6);
             element.attr('src', 'pictures/' + pips + '.png');
         }
