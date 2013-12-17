@@ -25,7 +25,15 @@ function gravity(container){
     }
 }
 
-
+function pip(number){
+    var random = Math.random(), i = 1;
+    while(i <= number){
+        if(random < i/number){
+            return i;
+        }
+        i++;
+    }
+}
 
 function makeDie(filename, container, pips){
     var img = new Image();
