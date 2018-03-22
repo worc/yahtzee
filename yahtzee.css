@@ -41,3 +41,8 @@ section{
     display:inline-block;
     z-index:0;
 }
+
+#gravity {
+    background-color: #C9EBC9;
+    height: 4rem;
+}
