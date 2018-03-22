@@ -146,6 +146,10 @@ function init() {
 	document.onmouseup = onDocumentMouseUp;
 	document.onmousemove = onDocumentMouseMove;
 
+	document.addEventListener('touchstart', onDocumentMouseDown);
+	document.addEventListener('touchend', onDocumentMouseUp);
+	document.addEventListener('touchmove', onDocumentMouseMove);
+
 	// init box2d
 	worldAABB = new b2AABB();
 	worldAABB.minVertex.Set(-200, -200);
@@ -199,12 +203,15 @@ function onDocumentMouseUp() {
 }
 
 // onDocumentMouseMove()
-function onDocumentMouseMove() {
-	if (!isRunning)
-		run();
+function onDocumentMouseMove(event) {
+    var touchEvent = event instanceof TouchEvent;
 
-	mouseX = window.event.clientX;
-	mouseY = window.event.clientY;
+	if (!isRunning) {
+        run();
+    }
+
+	mouseX = (touchEvent) ? window.event.touches[0].clientX : window.event.clientX;
+	mouseY = (touchEvent) ? window.event.touches[0].clientY : window.event.clientY;
 }
 
 // onElementMouseDown()
