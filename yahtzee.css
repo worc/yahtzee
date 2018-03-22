@@ -1,8 +1,17 @@
 ﻿* {
-    margin:0px;
-    border:0px;
-    padding:0px;
+    margin:0;
+    border:0;
+    padding:0;
     overflow:hidden;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    overscroll-behavior-y: none;
 }
 
 section{
